@@ -14,7 +14,7 @@
                     <td>{{item.name}}</td>
                     <td>{{item.assignedTo}}</td>
                     <td>{{item.priority}}</td>
-                    <td><i v-if="item.completed" class="fa fa-check"></i></td>
+                    <td><complete-toggle :item="item" /></td>
                 </tr>
             </tbody>
         </table>
@@ -23,9 +23,13 @@
 
 <script>
 import { mapState } from 'vuex'
+import completeToggle from './completeToggle'
 
 export default {
     name: 'projectList',
+    components: {
+        completeToggle
+    },
     // helper function mapState from Vuex
     // it's the same thing as...
     // computed: {
@@ -38,3 +42,9 @@ export default {
     ])
 }
 </script>
+
+<style>
+.completed {
+    text-decoration: line-through; 
+}
+</style>

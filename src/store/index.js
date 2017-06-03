@@ -22,6 +22,13 @@ const store = new Vuex.Store({
             }, (err) => {
                 console.log(err)
             })
+        }, 
+        TOGGLE_COMPLETED: function ({ commit, state }, { item }) {
+            axios.put('/projects' + item.id, item).then((response) => {
+                commit('UPDATE_PROJECT', { item: response.data })
+            }, (err) => {
+                console.log(err)
+            })
         }
     }, 
     mutations: {
@@ -30,6 +37,10 @@ const store = new Vuex.Store({
         },
         ADD_PROJECT: (state, { project }) => {
             state.projects.push(project)
+        }, 
+        UPDATE_PROJECT: (state, { item }) => {
+            let idx = state.projects.map(p => p.id).indexOf(item.id)
+            state.projects.splice(idx, 1, item)
         }
     }, 
     getters: {
