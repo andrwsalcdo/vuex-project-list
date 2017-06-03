@@ -4,7 +4,7 @@
             <div class="column is-half">
                 <!--components -->
                 <project-list />
-                <!--<add-project />-->
+                <add-project />
             </div>
             <div class="column is-one-quarter">
                 <!--components -->
@@ -16,14 +16,14 @@
 
 <script>
 import projectList from '../components/projectList'
-// import addProject from '../components/addProject'
+import addProject from '../components/addProject'
 // import projectStatus from '../components/projectStatus'
 
 export default {
     name: 'projects', 
     components: {
-        projectList 
-        // addProject, 
+        projectList,
+        addProject
         // projectStatus 
     }, 
     mounted: function () {
