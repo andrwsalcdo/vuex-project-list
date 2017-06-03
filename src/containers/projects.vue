@@ -4,27 +4,30 @@
             <div class="column is-half">
                 <!--components -->
                 <project-list />
-                <add-project />
+                <!--<add-project />-->
             </div>
             <div class="column is-one-quarter">
                 <!--components -->
-                <project-status />
+                <!--<project-status />-->
             </div>
         </div>
     </div>
 </template>
 
 <script>
-import projectLIst from '../components/projectList'
-import addProject from '../components/addProject'
-import projectStatus from '../components/projectStatus'
+import projectList from '../components/projectList'
+// import addProject from '../components/addProject'
+// import projectStatus from '../components/projectStatus'
 
 export default {
     name: 'projects', 
     components: {
-        projectList, 
-        addProject, 
-        projectStatus 
+        projectList 
+        // addProject, 
+        // projectStatus 
     }, 
+    mounted: function () {
+        this.$store.dispatch('LOAD_PROJECT_LIST')
+    }
 }
 </script>
